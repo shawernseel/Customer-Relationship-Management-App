@@ -2,11 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm
+from .models import Record
 
 
 # Create your views here.
 
 def home(request): #everytime a page is visited request is sent to backend here which is passed to view
+    records = Record.objects.all() #grabs all records
+
+
+
     # Check to see if logging in
     if request.method == "POST":
         username = request.POST["username"]
@@ -21,7 +26,7 @@ def home(request): #everytime a page is visited request is sent to backend here 
             messages.success(request, "There Was An Error Logging In, Please Try Again...")
             return redirect('home')
     else:
-        return render(request, 'home.html', {}) #home page is returned from request
+        return render(request, 'home.html', {'records':records}) #home page is returned from request
 
 
 #def login_user(request):
