@@ -15,17 +15,18 @@ def home(request): #everytime a page is visited request is sent to backend here 
         if user is not None:
             login(request, user)
             messages.success(request, "You Have Been Logged In!")
-            return redirect("home")
+            return redirect('home')
         else:
             messages.success(request, "There Was An Error Logging In, Please Try Again...")
-            return redirect("home")
+            return redirect('home')
     else:
         return render(request, 'home.html', {}) #home page is returned from request
 
 
-
-def login_user(request):
-    pass
+#def login_user(request):
+#    pass
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request, "You Have Been Logged Out...")
+    return redirect('home')
