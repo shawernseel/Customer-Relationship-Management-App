@@ -2,7 +2,8 @@ from django.db import models
 
 # Django abstracts database requests
 # Django will auto make this into a database model, no sql needed!
-class Record(models.Model):
+
+class Record(models.Model): #django will auto pluralise Record
     created_at = models.DateTimeField(auto_now_add=True) #django will auto timestamp; good to have
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
