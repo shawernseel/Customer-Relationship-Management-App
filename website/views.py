@@ -60,7 +60,7 @@ def customer_record(request, pk):
     if request.user.is_authenticated:
         #look up record
         customer_record = Record.objects.get(id=pk) #instead of .all we are getting a single record with .get
-        return render(request, 'recird.html', {'customer_record':customer_record})
+        return render(request, 'record.html', {'customer_record':customer_record})
     else:
         messages.success(request, "You Must Be Logged In To View That Page...")
         return redirect('home') 
