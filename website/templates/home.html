@@ -35,7 +35,7 @@
                     <td>{{ record.state }}</td>
                     <td>{{ record.zipcode }}</td>
                     <td>{{ record.created_at }}</td>
-                    <td>{{ record.id }}</td>
+                    <td><a href="{% url 'record' record.id %}">{{ record.id }}</a></td>
                 </tr>
             {% endfor %}
         {% endif %}
@@ -44,7 +44,7 @@
         </tr>
     </tbody>
 </table>
-
+    <div class="col-md-6 offset-md-3"> <!-- boot-strap to center in middle of screen-->
     <h1>Login</h1>
     <br/>
 
