@@ -25,8 +25,10 @@
             {% for record in records %}
                 <tr>
                     <td>
+                      <a href="{% url 'record' record.id %}">
                         {{ record.first_name }}
                         {{ record.last_name }}
+                      </a>
                     </td>
                     <td>{{ record.email }}</td>
                     <td>{{ record.phone }}</td>
