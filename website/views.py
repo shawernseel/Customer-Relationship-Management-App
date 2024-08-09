@@ -63,4 +63,16 @@ def customer_record(request, pk):
         return render(request, 'record.html', {'customer_record':customer_record})
     else:
         messages.success(request, "You Must Be Logged In To View That Page...")
-        return redirect('home') 
+        return redirect('home')
+    
+def delete_record(request, pk):
+    if request.user.is_authenticated:
+        delete_it = Record.objects.get(id=pk)
+        delete_it.delete() #django handles
+        messages.success(request, "Record Deleted Successfully")
+        return redirect('home')
+    else:
+        messages.success(request, "You Must Be Logged In To do That")
+        return redirect('home')
+
+
