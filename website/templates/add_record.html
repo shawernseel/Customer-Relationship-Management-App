@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="col-md-6 offset-md-3">
 <h1>Add Record</h1>
+<br/>
+
+<form method="POST" action="{% url 'add_record' %}">
+    {% csrf_token %} <!-- forms in django need this, it stops forms from being hijacked-->
+    {{ form.as_p }} <!-- django template; takes froms-->
+    <br/>
+    <button type="submit" class="btn btn-secondary">Add Record</button>
+</form>
 
 {% endblock %}
