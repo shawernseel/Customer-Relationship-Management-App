@@ -9,7 +9,7 @@
     <form method="POST" action="">
         {% csrf_token %}
 
-        {{ form.as_p }}
+        {{ form.as_p }} <!-- form is imported from views.py; .as_p gets django to wrap everything in a <p> to render html-->
 
         <br/>
         <button type="submit" class="btn btn-secondary">Register</button>
